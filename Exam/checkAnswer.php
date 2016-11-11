@@ -6,7 +6,7 @@
 <body>
 <?php
 include("lib/DBTool.php");
-
+$DB = new Database();
 $score = 0;
 
 foreach($_POST as $key => $value) {
@@ -16,7 +16,7 @@ foreach($_POST as $key => $value) {
         $AID = $_POST["Answer".$i];
         $sql = "select o.isCorrect, (select QuestionScore from Questions where QuestionID = o.QuestionID) score from Options o where o.OptionID = '".$AID."'";
         //echo $sql;
-        $qry = SqlSelect($sql);
+        $qry = $DB->Query($sql);
         $row = $qry->fetch_assoc();
 
         if($row["isCorrect"] == 1) {
