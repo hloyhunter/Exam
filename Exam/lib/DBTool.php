@@ -7,7 +7,7 @@
 
         function __construct()
         {
-            $config = parse_ini_file($_SERVER["DOCUMENT_ROOT"]."/Config.ini", true);
+            $config = parse_ini_file("../Config.ini", true);
             $this->Server = $config["Database"]["Server"];
             $this->User = $config["Database"]["User"];
             $this->Password = $config["Database"]["Password"];
