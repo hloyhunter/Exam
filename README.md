@@ -70,5 +70,7 @@ Array(
 
 目前實作至此。 2016/11/11
 
-*目前待解決問題：*
-* *DBTool.php裡面抓Config.ini是使用`根目錄/Exam/Config.ini`，所以架站根目錄多一層或少一層都會抓不到。*
+
+####*目前待解決問題：*
+* DBTool.php裡面抓Config.ini是使用`根目錄/Exam/Config.ini`，所以架站根目錄多一層或少一層都會抓不到。
+* Stored Procedure尚未研究。
