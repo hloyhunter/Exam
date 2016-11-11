@@ -8,12 +8,13 @@
 <body>
 <form method="POST" action="checkAnswer.php">
 <?php
-    $questions = SqlSelect("select * from Questions q");
+	$DB = new Database();
+    $questions = $DB->Query("select * from Questions q");
     $i = 1;
     while ($row = $questions->fetch_assoc()) {
         echo $i.". ".$row["QuestionText"]."(".$row["QuestionScore"]."%)<br />";
         echo "<input type='hidden' name='Question".$i."' id='Question".$i."' value='".$row["QuestionID"]."' />";
-        $options = SqlSelect("select * from Options o where o.QuestionID = '".$row["QuestionID"]."'");
+        $options = $DB->Query("select * from Options o where o.QuestionID = '".$row["QuestionID"]."'");
         while ($oRow = $options->fetch_assoc()) {
             echo "<input type='radio' name='Answer".$i."' value='".$oRow["OptionID"]."' />".$oRow["OptionText"]."<br />";
         }
