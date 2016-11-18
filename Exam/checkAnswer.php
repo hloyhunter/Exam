@@ -15,7 +15,6 @@ foreach($_POST as $key => $value) {
 
         $AID = $_POST["Answer".$i];
         $sql = "select o.isCorrect, (select QuestionScore from Questions where QuestionID = o.QuestionID) score from Options o where o.OptionID = :AID";
-        //echo $sql;
         $row = $DB->Query($sql, Array(":AID" => $AID));
 
         if($row[0]["isCorrect"] == 1) {
