@@ -20,11 +20,11 @@
     <br/>
     <div class="row">
         <div class="col-lg-12">
-                <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#AddModal">新增題目
-                </button>
+            <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#AddModal">新增題目
+            </button>
         </div>
     </div>
-    <br />
+    <br/>
     <div class="row">
         <div class="col-lg-12">
             <table id="QuestionTable" class="table table-bordered table-hover">
@@ -38,6 +38,11 @@
                 </thead>
                 <tbody id="QTBody"></tbody>
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-default pull-right" href="/Exam">返回</a>
         </div>
     </div>
 </div>
