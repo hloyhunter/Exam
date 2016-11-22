@@ -12,7 +12,7 @@
     <br/>
     <div class="row">
         <div class="col-lg-8">
-            <a href="maintainQuestions.php" class="btn btn-danger pull-right">維護題目</a>
+            <a href="maintainQuestions.php" class="btn btn-link pull-right">維護題目</a>
         </div>
     </div>
     <div class="row">
@@ -35,10 +35,18 @@
                 }
                 ?>
                 <br/>
-                <input type="submit" class="btn btn-primary" id="btnSubmit" value="送出答案"/>
+                <input type="submit" class="btn btn-primary" id="btnSubmit" value="送出答案"/>&nbsp;
+                <input type="button" class="btn btn-warning" id="btnClear" value="清除答案" />
             </form>
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $('#btnClear').click(function () {
+            $('input[type=radio]').prop('checked', false);
+        });
+    });
+</script>
 </body>
 </html>
