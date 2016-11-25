@@ -20,13 +20,13 @@
             <form method="POST" action="checkAnswer.php">
                 <?php
                 $DB = new Database();
-                $questions = $DB->Query("select * from Questions q");
+                $questions = $DB->Query("select * from Questions q order by RAND()");
                 $i = 1;
                 foreach ($questions as $row) {
                     echo $i . ". " . $row["QuestionText"] . "(" . $row["QuestionScore"] . "分)<br />";
                     echo "<input type='hidden' name='Question" . $i . "' id='Question" . $i . "' value='" . $row["QuestionID"] . "' />";
 
-                    $options = $DB->Query("select * from Options o where o.QuestionID = :QID", Array(":QID" => $row["QuestionID"]));
+                    $options = $DB->Query("select * from Options o where o.QuestionID = :QID order by RAND()", Array(":QID" => $row["QuestionID"]));
                     foreach ($options as $oRow) {
                         echo "<div class='radio'><label><input type='radio' name='Answer" . $i . "' value='" . $oRow["OptionID"] . "'>" . $oRow["OptionText"] . "</label></div>";
                     }
