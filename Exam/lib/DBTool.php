@@ -5,7 +5,7 @@ class Database
     private $Server;
     private $User;
     private $Password;
-    private $Database;
+	private $Database;
 
     function __construct()
     {
@@ -14,7 +14,7 @@ class Database
         $this->User = $config["Database"]["User"];
         $this->Password = $config["Database"]["Password"];
         $this->Database = $config["Database"]["Database"];
-    }
+	}
 
     //參數化查詢，回傳查詢結果Array
     public function Query($sql, $params = null)
@@ -41,9 +41,11 @@ class Database
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $result = $stmt->fetchAll();
 
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
-        } finally {
+        }
+        finally {
             $conn = null;
         }
         return $result;
@@ -72,9 +74,11 @@ class Database
 
             $result = $stmt->execute();
 
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
-        } finally {
+        }
+        finally {
             $conn = null;
         }
         return $result;
